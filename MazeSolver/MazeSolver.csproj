@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{78F3837F-05DB-45D5-A6C6-3DFB2C4DCE93}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MazeSolver</RootNamespace>
+    <AssemblyName>MazeSolver</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\CartesianCoordinate.cs" />
+    <Compile Include="Common\DirectionEnum.cs" />
+    <Compile Include="Common\DirectionsAvailable.cs" />
+    <Compile Include="Core\DirectionPickerLogic\BaseDirectionPicker.cs" />
+    <Compile Include="Core\DirectionPickerLogic\StraightLineDirectionPicker.cs" />
+    <Compile Include="Core\DirectionPickerLogic\WallHuggingDirectionPicker.cs" />
+    <Compile Include="Core\MazeElements\Maze.cs" />
+    <Compile Include="Core\MazeElements\MazeGridpoint.cs" />
+    <Compile Include="Core\MazeElements\MazeSolutionElement.cs" />
+    <Compile Include="Core\MazeElements\MazeSolutionElementTree.cs" />
+    <Compile Include="Core\PreTreatments\DetermineAllOpenPaths.cs" />
+    <Compile Include="Core\PreTreatments\DetermineAllOpenPathsAtStartPoint.cs" />
+    <Compile Include="Core\PreTreatments\PreTreatmentLogic.cs" />
+    <Compile Include="Core\PreTreatments\RemoveAllEasilyIdentifiableDeadEnds.cs" />
+    <Compile Include="Core\PreTreatments\RemoveRedundantWhiteSpace.cs" />
+    <Compile Include="Core\SolverLogic\BreadthFirstMazeSolution.cs" />
+    <Compile Include="Core\SolverLogic\BruteForceConstantDirectionMazeSolution.cs" />
+    <Compile Include="Core\SolverLogic\BruteForceMazeSolution.cs" />
+    <Compile Include="Core\SolverLogic\BruteForceWallHuggingMazeSolution.cs" />
+    <Compile Include="Core\SolverLogic\MazeSolution.cs" />
+    <Compile Include="Core\SolverLogic\RecursiveBreadthFirstMazeSolution.cs" />
+    <Compile Include="Events\MazeGridpointUpdatedEventArgs.cs" />
+    <Compile Include="Events\MazeRedrawnEventArgs.cs" />
+    <Compile Include="Interfaces\IDirectionPickerLogic.cs" />
+    <Compile Include="Interfaces\IMazeSolverLogic.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
